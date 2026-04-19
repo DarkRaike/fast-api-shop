@@ -9,7 +9,7 @@ engine = create_engine( # по сути это наше соединение с 
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) # фабрика по штамповке сессий
-Base = declarative_base()
+Base = declarative_base() # нужен чтобы писать нашей модели
 
 def get_db():
     db = SessionLocal() # создаем сессию
