@@ -37,7 +37,7 @@ class ProductRepository:
     def get_multiple_by_ids(self, product_ids: List[int]) -> List[Product]:
         return (
             self.db.query(Product)
-            .optional(joinedload(Product.category))
+            .options(joinedload(Product.category))
             .filter(Product.id.in_(product_ids))
             .all()
         )
